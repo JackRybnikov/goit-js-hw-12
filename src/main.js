@@ -61,22 +61,3 @@ searchBtn.addEventListener("click", e =>{
 
     handleClick();
 });
-
-
-/*const markup = images.map(image => {
-    const {preview: small, original: big, description: alt} = image;
-    return `<li class="gallery-item">
-  <a class="gallery-link" href="${big}">
-    <img
-      class="gallery-image"
-      src="${small}"
-      alt="${alt}"
-    />
-  </a>
-</li>`;
-})
-.join("");
-
-
-
-const gallery = new SimpleLightbox('.gallery a', { captionDelay: 250, captionsData: "alt",});*/
