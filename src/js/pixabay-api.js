@@ -1,25 +1,24 @@
-import { galleryCreation } from './render-functions.js';
-
 import axios from 'axios';
 
-export const sendRequest = (search) => {
+export const sendRequest = async (search, page, per_page = 15) => {
     axios.defaults.baseURL = `https://pixabay.com`;
 
-    axios.get(`/api/?`, {
+    const response = await axios.get(`/api/?`, {
         params: {
             key: "42388767-1d9ccb99c091176bae08c2c78",
             q: search,
             image_type: 'photo',
             orientation: 'horizontal',
             safesearch: true,
-            per_page: 15,
-            page: 1,
+            per_page,
+            page,
         }
     })
     .then(response => {
-        console.log(response.data);
-        galleryCreation(response.data.hits);
+        return response.data;
     })
     .catch(error => console.log(error));
+
+    return response;
 };
 
