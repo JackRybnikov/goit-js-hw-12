@@ -19,7 +19,7 @@ moreBtn.type = "button";
 
 const loader = document.createElement("div");
 
-loader.classList.add("loader");
+loader.classList.add("loader", "loader2");
 
 searchBtn.setAttribute('disabled', true);
 
@@ -40,6 +40,7 @@ const handleClick = async () => {
 moreBtn.addEventListener("click", (e) =>{
     e.stopPropagation();
     e.preventDefault();
+    removeBtn();
 
     handleClick();
 });
@@ -149,7 +150,6 @@ export const galleryCreation = (data) => {
         gallery.refresh();
     } else if (page < maxPages) {
         page += 1;
-        removeBtn();
         const markup = galleryFiller(images);
         galleryList.innerHTML += markup;
         addButn();
@@ -158,7 +158,6 @@ export const galleryCreation = (data) => {
         gallery.refresh();
     } else if (page === maxPages){
         page += 1;
-        removeBtn();
         const markup = galleryFiller(images);
         galleryList.innerHTML += markup;
         gallery.refresh();
